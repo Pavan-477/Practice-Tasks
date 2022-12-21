@@ -57,12 +57,12 @@ INSERT INTO Orders VALUES
 
 show tables;
 
--- 1) Count the number of Salesperson whose name begin with ‘a’/’A’.
+-- QUESTION 1
 
 select count(Sname) from salespeople
 where Sname like 'a%' or Sname like 'A%';
 
--- 2) Display all the Salesperson whose all orders worth is more than Rs. 2000.
+-- QUESTION 2
 
 select o.snum,s.Sname,sum(amt)
 from orders o
@@ -72,17 +72,17 @@ group by amt,snum,s.Sname
 having o.amt>2000;
 
 
--- 3) Count the number of Salesperson belonging to Newyork.
+-- QUESTION 3
 
 select count(Sname) from salespeople
 where City='Newyork';
 
--- 4) Display the number of Salespeople belonging to London and belonging to Paris.
+-- QUESTION 4
 
 select * from salespeople
 where City in ('London','Paris');
 
--- 5) Display the number of orders taken by each Salesperson and their date of orders.
+-- QUESTION 5
 
 select o.snum,s.Sname ,odate,count(o.snum) as number_of_orders 
 from orders o
